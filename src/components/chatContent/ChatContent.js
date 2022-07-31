@@ -19,6 +19,7 @@ const ChatContent = ({
   const [msg, setmsg] = useState("");
 
   const onStateChange = (e) => {
+    e.preventDefault();
     setmsg(e.target.value);
   };
 

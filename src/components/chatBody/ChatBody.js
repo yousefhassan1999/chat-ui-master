@@ -16,6 +16,7 @@ const ChatBody = ({
   publicChats,
   mewMessage
 }) => {
+  
   return (
     <div className="main__chatbody">
       <div className="User_Info">

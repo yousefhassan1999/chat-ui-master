@@ -22,6 +22,7 @@ const ChatList = ({
   }, [size]);
 
   const toggleInfo = (e) => {
+    e.preventDefault();
     e.target.parentNode.parentNode.parentNode.classList.toggle("open");
   };
   const allConnections = [...allChats.keys()];

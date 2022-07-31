@@ -36,7 +36,8 @@ const App = () => {
     }
   };
   const onError = (err) => {
-    console.log(err);
+    alert(err);
+    alert("please try again after few second to get backend server work. ");
   };
 
   const onConnected = () => {
@@ -80,8 +81,6 @@ const App = () => {
     var payloadData = JSON.parse(payload.body);
     if (privateChats.get(payloadData.senderName)) {
       privateChats.get(payloadData.senderName).push(payloadData);
-      console.log(payloadData.senderName);
-      console.log(tab);
       if (payloadData.senderName !== tab) {
         mewMessage.set(
           payloadData.senderName,
@@ -137,8 +136,6 @@ const App = () => {
         ...userData,
         username: userData.username.concat("," + AvatarLinks.indexOf(avatar)),
       });
-      console.log(avatar);
-      console.log(userData.username);
       connect();
     }
   };

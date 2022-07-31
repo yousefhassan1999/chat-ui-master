@@ -3,6 +3,7 @@ import Avatar from "./Avatar";
 
 export default class ChatListItems extends Component {
   selectChat = (e) => {
+    e.preventDefault();
     this.props.SetTabClick(this.props.name, this.props.image);
     for (
       let index = 0;
