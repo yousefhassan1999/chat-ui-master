@@ -11,9 +11,9 @@ export const allConnections = (allChats) => {
   }
   return AllConnecting;
 };
-export const GetNewMessageNum = (item,mewMessage) => {
+export const GetNewMessageNum = (item, mewMessage) => {
   for (var i = 0; i < mewMessage.length; i++) {
-    if(mewMessage[i].senderName===item){
+    if (mewMessage[i].senderName === item) {
       return mewMessage[i].Data;
     }
   }
@@ -64,8 +64,7 @@ const ChatList = ({
           {allConnection
             .filter((item) => item !== UserName)
             .map((item, index) => {
-              const num = GetNewMessageNum(item,mewMessage)
-              console.log(num)
+              const num = GetNewMessageNum(item, mewMessage);
               return (
                 <ChatListItems
                   name={item.split(",")[0]}
@@ -79,7 +78,11 @@ const ChatList = ({
             })}
         </div>
       ) : (
-        <div className="empty_message_show">Connection Members After you</div>
+        <div className="chatlist__items" data-simplebar>
+          <div className="empty_message_show">
+            No Connection Members After you
+          </div>
+        </div>
       )}
     </div>
   );

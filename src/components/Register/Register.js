@@ -23,12 +23,12 @@ const Register = ({ connect, AvatarLinks }) => {
   };
 
   const registerUser = async (e) => {
-    setDisablee(true);
     e.preventDefault();
     AvatarLinks.indexOf(avatar) === -1 && alert("Choose Avatar to connect");
     userName.split(",")[0] === "" && alert("Enter UserName to connect");
 
     if (AvatarLinks.indexOf(avatar) !== -1 && userName.split(",")[0] !== "") {
+      setDisablee(true);
       setuserName(userName.concat("," + AvatarLinks.indexOf(avatar)));
       connect(userName);
     }

@@ -1,7 +1,7 @@
 .main__chatlist {
   margin-bottom: 20px;
   border-bottom: 2px solid #858588;
-  min-height: 71vh;
+  
 }
 .main__chatlist.open .chatlist__items {
   display: block;
@@ -11,6 +11,7 @@
     border-right: 1px solid #ebe7fb;
     padding: 0 40px 0 0px;
     border-bottom: none;
+    min-height: 71vh;
   }
 }
 
@@ -49,7 +50,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #858588;
+  color: #242425;
   font-size: larger;
   font-weight: bolder;
   padding: 30px;

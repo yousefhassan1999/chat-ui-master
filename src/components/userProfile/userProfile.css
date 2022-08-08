@@ -20,7 +20,7 @@
   background-color: rgb(255, 255, 255,40%);
   border-radius: 10px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   transform: scale(0);
   animation-name: showIn;
@@ -64,5 +64,10 @@
 @media screen and (min-width: 768px){
   .username{
     width: 200px;
+  }
+  .profile__card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
