@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import {useNavigate } from "react-router-dom";
 
 import "./chatBody.css";
 import ChatList from "../chatList/ChatList";
@@ -11,14 +12,11 @@ import {
   SetnewMessageValue,
 } from "../../redux/UserData/UserDataSlice";
 
-
 const ChatBody = ({ stompClient, AvatarLinks }) => {
-
-  const {username} = useSelector((state) => state.UserNameStore);
+  let navigate = useNavigate();
+  const { username } = useSelector((state) => state.UserNameStore);
   const UserDataStore = useSelector((state) => state.UserDataStore);
   const dispatch = useDispatch();
-
-
 
   const sendValue = (msg) => {
     if (stompClient) {
@@ -53,8 +51,7 @@ const ChatBody = ({ stompClient, AvatarLinks }) => {
         break;
       }
     }
-
-  }, [UserDataStore.Tab,UserDataStore.mewMessage,dispatch]);
+  }, [UserDataStore.Tab, UserDataStore.mewMessage, dispatch]);
 
   const SetTabClick = (Tab, URL) => {
     if (Tab === "CHATROOM") {
@@ -65,12 +62,16 @@ const ChatBody = ({ stompClient, AvatarLinks }) => {
   };
 
   React.useEffect(() => {
-    var chatMessage = {
-      senderName: username,
-      status: "JOIN",
-    };
-    stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
-  }, [stompClient, username]);
+    try {
+      var chatMessage = {
+        senderName: username,
+        status: "JOIN",
+      };
+      stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
+    } catch {
+      navigate("/");
+    }
+  }, [stompClient, username,navigate]);
 
   return (
     <div className="main__chatbody">
