@@ -1,10 +1,11 @@
 .main__chatbody {
   flex-grow: 1;
-  background-color: #f4f3f8;
+  background-color:rgb(244, 243, 248,40%);
   border-radius: 10px;
   padding: 15px 20px;
   display: flex;
   flex-direction: column;
+  color: white;
 }
 @media screen and (min-width: 768px){
   .main__chatbody {

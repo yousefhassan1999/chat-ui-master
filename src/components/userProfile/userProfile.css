@@ -17,7 +17,7 @@
 }
 
 .profile__card {
-  background-color: #fff;
+  background-color: rgb(255, 255, 255,40%);
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -37,14 +37,15 @@
   animation-delay: 0.3s; /* or: Xms */
   margin-bottom: 15px;
 }
-.profile__card.user__profile__image {
-  padding: 10px 10px;
-}
 .profile__card .profile__image {
   width: 100px;
   height: 100px;
-  border-radius: 50%;
+  border-radius:  10% 0  0 10%;
   overflow: hidden;
+  -webkit-border-radius:  10% 0  0 10%;
+  -moz-border-radius:  10% 0  0 10%;
+  -ms-border-radius:  10% 0  0 10%;
+  -o-border-radius:  10% 0  0 10%;
 }
 .profile__card .profile__image img {
   object-fit: cover;
@@ -53,7 +54,6 @@
 .profile__card p {
   margin-bottom: 0;
   margin-left: 10px;
-  color: #393a3b;
   font-weight: bolder;
 }
 .username{

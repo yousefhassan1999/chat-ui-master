@@ -17,6 +17,7 @@ export default class ChatListItems extends Component {
   };
 
   render() {
+    console.log(this.props.newMessage)
     return (
       <div
         style={{ animationDelay: `0.${this.props.animationDelay}s` }}

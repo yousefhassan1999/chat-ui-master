@@ -1,6 +1,7 @@
 .main__chatlist {
   margin-bottom: 20px;
   border-bottom: 2px solid #858588;
+  min-height: 71vh;
 }
 .main__chatlist.open .chatlist__items {
   display: block;
@@ -34,7 +35,8 @@
   outline: none;
 }
 .clicked {
-  background: #f3c5ff;
+  background: hsl(0, 81%, 69%);
+  color: #fff;
 }
 .chatlist__items {
   overflow: auto;
@@ -117,8 +119,9 @@
   margin: 0;
   padding: 0;
   color: #000;
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: bolder;
+  font-size: 17px;
+  margin-bottom: 3px;
 }
 .chatlist__item .userMeta span {
   margin: 0;
@@ -127,6 +130,8 @@
   font-weight: 400;
   font-size: 12px;
   display: block;
+  font-weight: bolder;
+
 }
 .chatlist__item:hover,
 .chatlist__item.active {
@@ -134,7 +139,7 @@
   border-radius: 10px;
 }
 .chatlist__item.new {
-  background: #ff8066;
+  background: #a82929;
   border-radius: 10px;
 }
 .avatar-img {

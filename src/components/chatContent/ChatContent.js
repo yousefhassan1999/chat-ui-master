@@ -10,11 +10,12 @@ const ChatContent = ({
   sendValue,
   sendPrivateValue,
   AvatarLinks,
-  userData,
+  UserName,
   tab,
   privateChats,
   publicChats,
 }) => {
+
   const messagesEndRef = React.createRef(null);
   const [msg, setmsg] = useState("");
 
@@ -35,7 +36,16 @@ const ChatContent = ({
   const scrollToBottom = () => {
     messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
   };
-  React.useEffect(scrollToBottom, [privateChats,publicChats]);
+  React.useEffect(scrollToBottom, [privateChats, publicChats]);
+
+  const GetPrivateChatData = (item) => {
+    for (var j = 0; j < privateChats.length; j++) {
+      if (privateChats[j].senderName === item) {
+        console.log(privateChats[j].Data);
+        return privateChats[j].Data;
+      }
+    }
+  };
   return (
     <div className="main__chatcontent">
       <div className="content__header">
@@ -67,16 +77,16 @@ const ChatContent = ({
                 <ChatItem
                   animationDelay={index + 2}
                   key={index}
-                  user={chat.senderName === userData.username ? "other" : "me"}
+                  user={chat.senderName === UserName ? "other" : "me"}
                   msg={chat.message}
                   image={AvatarLinks[parseInt(chat.senderName.split(",")[1])]}
                 />
               ))
-            : [...privateChats.get(tab)].map((chat, index) => (
+            : GetPrivateChatData(tab).map((chat, index) => (
                 <ChatItem
                   animationDelay={index + 2}
                   key={index}
-                  user={chat.senderName === userData.username ? "other" : "me"}
+                  user={chat.senderName === UserName ? "other" : "me"}
                   msg={chat.message}
                   image={AvatarLinks[parseInt(chat.senderName.split(",")[1])]}
                 />

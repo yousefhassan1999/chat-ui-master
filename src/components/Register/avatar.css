@@ -38,7 +38,7 @@
 }
 
 .corssal div:first-child button {
-  background: transparent;
+  background: #fff;
   font-size: 30px;
 }
 @media (max-width: 768px) {
@@ -50,6 +50,9 @@
 .corssal div:first-child button:hover {
   background: transparent;
   color: #0081cf;
+}
+.rec .rec-pagination button{
+  background-color: rgb(203, 219, 236);
 }
 .sel {
   border: 3px solid black;

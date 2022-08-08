@@ -4,9 +4,25 @@ import ChatListItems from "./ChatListItems";
 import "simplebar";
 import "simplebar/dist/simplebar.css";
 
+export const allConnections = (allChats) => {
+  const AllConnecting = [];
+  for (var i = 0; i < allChats.length; i++) {
+    AllConnecting[i] = allChats[i].senderName;
+  }
+  return AllConnecting;
+};
+export const GetNewMessageNum = (item,mewMessage) => {
+  for (var i = 0; i < mewMessage.length; i++) {
+    if(mewMessage[i].senderName===item){
+      return mewMessage[i].Data;
+    }
+  }
+  return 0;
+};
+
 const ChatList = ({
   tab,
-  userData,
+  UserName,
   allChats,
   SetTabClick,
   AvatarLinks,
@@ -25,7 +41,7 @@ const ChatList = ({
     e.preventDefault();
     e.target.parentNode.parentNode.parentNode.classList.toggle("open");
   };
-  const allConnections = [...allChats.keys()];
+  const allConnection = allConnections(allChats);
   return (
     <div className="main__chatlist open">
       <button
@@ -43,11 +59,13 @@ const ChatList = ({
         )}
       </div>
 
-      {allConnections.length !== 1 ? (
+      {allConnection.length !== 1 ? (
         <div className="chatlist__items" data-simplebar>
-          {allConnections
-            .filter((item) => item !== userData.username)
+          {allConnection
+            .filter((item) => item !== UserName)
             .map((item, index) => {
+              const num = GetNewMessageNum(item,mewMessage)
+              console.log(num)
               return (
                 <ChatListItems
                   name={item.split(",")[0]}
@@ -55,7 +73,7 @@ const ChatList = ({
                   animationDelay={index + 1}
                   image={AvatarLinks[parseInt(item.split(",")[1])]}
                   SetTabClick={SetTabClick}
-                  newMessage={mewMessage.get(item) > 0}
+                  newMessage={num > 0}
                 />
               );
             })}
